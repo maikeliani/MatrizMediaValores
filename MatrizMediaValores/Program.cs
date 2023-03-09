@@ -6,7 +6,7 @@
 
 
         PreencheMatriz(mat,5,3);
-        ImprimeMatriz(mat,5,3);
+        ImprimeMatriz(mat,3);
 
 
         void PreencheMatriz(double[,] aux, int lin, int col)
@@ -17,39 +17,29 @@
                 for (int coluna = 0; coluna < 3; coluna++)
                 {
                    
-
-                    Console.WriteLine(" \nDigite o valor da posicao [{0},{1}]", linha, coluna);
-                    
-
-                    if (col != 2)
+                    if (coluna == 2)
                     {
+                        aux[linha, 2] = (aux[linha, 0] + aux[linha, 1])/2;
+                    }
+
+                    else 
+                    {
+                        Console.WriteLine(" \nDigite o valor da posicao [{0},{1}]", linha, coluna);
                         aux[linha, coluna] = double.Parse(Console.ReadLine());
                        
                     }
-                    else
-                    {
-                        aux[linha, coluna] = aux[linha, 0] + aux[linha, 1];
-                        
-                    }
+                                   
+
+                    
 
                 }
             }
         }
 
-
-        double CalculaMedia(double[] valores, int qtd)
-        {
-            double soma = 0;
-            for (int x = 0; x < valores.Length; x++)
-            {
-                soma += valores[x];
-            }
-            return soma / qtd;
-        }
+       
 
 
-
-        void ImprimeMatriz(double[,]aux,int lin, int col)
+        void ImprimeMatriz(double[,]aux,int col)
         {
             Console.Clear();
             
